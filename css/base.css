@@ -1,0 +1,51 @@
+.pg-container {
+    margin: auto;
+    text-align: center;
+}
+
+.pg-img {
+	max-width: 100%;
+}
+
+h1, h3 {
+	font-family: 'Fredericka the Great', serif;
+}
+
+h1 {
+	font-size: 50px;
+	margin-bottom: 0px;
+	line-height: 1em;
+}
+
+h3 {
+	font-size: 20px;
+	
+}
+
+h4 {
+	font-family: 'Amatic SC', serif;
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.subhead {
+	font-family: 'Amatic SC', sans-serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 50px;
+}
+
+.form {
+	width: 48%;
+	display: inline-grid;
+}
+.table {
+	margin: auto;
+	text-align: center;
+}
+
+#map {
+width: 80%;
+height: 300px;
+margin: auto;
+}
