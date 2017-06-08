@@ -1,74 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Danielle Rindler Unit 9</title>
-		<link rel="stylesheet" type="text/css" href="css/base.css">
-		<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Fredericka+the+Great|Open+Sans+Condensed:300" rel="stylesheet">
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<title>Monk's Café</title>
 
-<body>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<div class="pg-container">
-		<h1>Monk's Cafe</h1>
-		<p class="subhead">"The Coffee Shop"</p>
-		<img class="pg-img" src="./img/toms-restaurant.jpg">
-	<div>
-		<h3>Reservations</h3>
-		<div class="form">
-			<h4>Make a Reservation</h4>
-			<form>
-    			<input type="text" id="name" placeholder="Name">
-    			<input type="text" id="day" placeholder="Day">
-   				 <button>Confirm Reservation</button>
-			</form>
-		</div>
-		<div class="form">
-			<h4>Existing Reservations</h4>
-			<table class="table">
-				<thead>
-					<tr>
-					<th>Name</th>
-					<th>Day</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>xxxx</td>
-						<td>xxxx</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar-inverse" data-offset="50">
+
+	<!-- template for reservation-list -->
+	<script id="reservation-template" type="text/x-handlebars-template">
+		<tr>
+			<td>{{name}}</td>
+			<td>{{day}}</td>
+		</tr>
+	</script>
+
+	<!-- navbar -->
+	<div id="navbar" class="navbar-collapse navbar-inverse collapse navbar-fixed-top">
+		<a href="#" class="navbar-brand">Monk's Café</a>
+		<ul class="nav navbar-nav navbar-right">
+		  <li class="active"><a href="#reservation">Reservation</a></li>
+		  <li><a href="#map">Map</a></li>
+		</ul>
+	</div>
+
+	<div class="container-fluid restaurant-pic">
+		<div class="row">
+			<div class="col-md-12"></div>
 		</div>
 	</div>
 
-	<div>
-		<h3>Come Dine with Us</h3>
+	<div id="reservation" class="container-fluid reservation">
+
+		<!-- reservation form -->
+		<div class="row reservation-form-container">
+			<div class="col-md-12 text-center reservation-form">
+				<form class="form-inline reservations">
+				  <div class="form-group">
+				    <input type="text" class="form-control reservation-name" placeholder="Jane Doe">
+				  </div>
+				  <div class="form-group">
+						<div class="dropdown">
+						  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+						    <div id="day-btn">Select A Day</div>
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu reservation-day">
+						    <li><a>Today</a></li>
+						    <li><a>Tomorrow</a></li>
+						    <li><a>The day after next</a></li>
+						  </ul>
+						</div>
+				  </div>
+				  <button class="btn btn-default reservation-button">Set Reservation</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- reservations -->
+		<table class="table table-striped col-md-12 container-fluid">
+			<h4>Reservations</h4>
+			<thead>
+				<th>Name</th>
+				<th>Day</th>
+			</thead>
+			<tbody class="reservation-list">
+			<script id="entry-template" type="text/x-handlebars-template">
+				<tr>
+					<td>{{name}}</td>
+					<td>{{day}}</td>
+				</tr>
+			</script>
+			</tbody>
+		</table>
 	</div>
-			<div id="map"></div>
 
-
-	<div>
-		<h3>Customer reviews</h3>
-		<img src="./img/jerry.jpg">
-		<p class="">“Big lettuce, big carrots, tomatoes like volleyballs.”</p>
-		<p class="">— Jerry Seinfeld, on The BIG Salad</p>
+	<div id="map" class="container-fluid restaurant-locator">
 	</div>
-</div>
 
-<!-- jQuery -->
-      <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-      <!-- custom js -->
-      <script src="./js/base.js"></script>
-      <!-- google maps -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBONalIOxen-4pqeFGjEgiKLG8hVM1K7YI&callback=initMap" async defer></script>
-</body>	
-
+  <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- custom js -->
+  <script src="js/main.js"></script>
+	<!-- google maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDbt1M_Y1NT5NIZ27O1y0L-PXT5-bEIjs&callback=initMap"
+  async defer></script>
+</body>
+</html>
